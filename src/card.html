@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeria Murguia</title>
+    <link rel="shortcut icon" href="./assets/joya.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./card.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="containerHeader">
+
+            <div class="headerItemContainer">
+              <img class="imageLogo" src="./assets/logo1.jpg" alt="Logo de la empresa Cristal Joyas">
+            </div>
+      
+            <div class="headerItemContainer">
+              <input class="inputBuscar" type="text" placeholder="Buscar en productos">
+            </div>
+      
+            <div class="headerItemContainer">
+                <p class="pBienvenida">Hola, Melissa Aquijes</p>
+                <img class="shoppingCart" src="./assets/carrito.png" alt="Artículos en cesta">
+                <span class="cantidadArticulo">4</span>
+            </div>    
+      
+          </div>
+    </header>
+
+    <nav>
+        <div class="navContainer">
+          
+          <div class="navItemContainer">
+            <a class="opciones" href="">RELOJERÍA</a>
+          </div>
+    
+          <div class="navItemContainer">
+            <a class="opciones" href="">JOYERÍA ORO</a>
+          </div>
+    
+          <div class="navItemContainer">
+            <a class="opciones" href="">JOYERÍA PLATA</a>
+          </div>
+    
+          <div class="navItemContainer">
+            <a class="opciones" href="">JOYERÍA ACERO</a>
+          </div>
+    
+          <div class="navItemContainer">
+            <a class="opciones" href="">OUTLET</a>
+          </div>
+          
+        </div>
+      </nav>
+
+      <!------------------------------------------ TARJETAS ------------------------------------->
+    <section>
+      <div class="containerDetailCards">
+        <div class="contenedorFondo">
+          <div class=" contenedorGrid">
+
+            <!------------------------- PARTE FRONTAL DE LA TARJETA ------------------------>
+            <div class="contenedorFlexbox">
+              <section>
+                  <div class="imageCard">
+                    <figure >
+                      <img  src="./assets/frontal-card.png" alt="Tarjeta parte frontal">
+                    </figure>
+                    
+                    <img class="logoMarca" src="./assets/visa.png" alt="Logo Visa">
+                    <img class="chip" src="./assets/chip-tarjeta.png" alt="Chip de tarjeta">
+                    
+                    <div class="informacion" id="numero">
+                      <p class="numero">#### #### #### 4567</p>
+                    </div>
+
+                    <div class="flexbox">
+                      <div class="informacion" id="nombre">
+                          <p class="nombre">Melissa Aquijes</p>
+                      </div>
+
+                      <div class="informacion" id="expiracion">
+                          <p class="expiracion"><span class="mes">MM</span> / <span class="year">YY</span></p>
+                      </div>
+                    </div>  
+                  </div>
+              </section>
+            </div>
+
+<!----------------------------------- PARTE TRASERA DE LA TARJETA --------------------------->
+            <div class="contenedorFlexbox">
+              <section>
+                <div class="imageCardTwo">
+                  <figure>
+                    <img src="./assets/detras-card.png" alt="Reverso de la tarjeta">
+                  </figure>
+               
+                  <div class="information" id="ccv">
+                    <p class="cvv">CVV</p>
+                  </div>
+    
+                </div>
+              </section>
+              
+            </div>
+          </div>
+
+        </div>
+
+        <!------------------------------------- INICIO DEL FORMULARIO ------------------------------>
+        <div class="formContainerAll">
+          <form action="">
+
+            <div class="containerItemsOne">
+              <label for="inputNombre">Nombre del titular:</label>
+              <input type="text" id="inputNombre" required>
+              
+              <label for="inputNumeroTarjeta">Número de Tarjeta:</label>
+              <input type="text" id="inputNumeroTarjeta" maxlength="19" autocomplete="off" required>
+            </div>
+
+
+            <div class="containerItemsTwo">
+              <label for="selectMes">Expiración (MM/YY)</label>
+              <label for="inputCVV">CVV</label>
+
+              <div class="grupoGrid">
+
+                <div class="grupoExpira">
+                  <select name="mes" id=""selectMes">
+                    <option disabled selected>Mes</option>
+                  </select>
+
+                  <select name="year" id=""selectYear">
+                    <option disabled selected>Año</option>
+                  </select>
+          
+                </div>
+
+                <div>
+                  <input type="text" id="inputCVV" maxlength="3">
+                </div>
+              </div>
+            </div>
+          
+            <button type="submit" class="btnEnviar">Confirmar</button>
+
+          </form>
+        </div>
+      </div>   
+    </section>
+
+    <footer>
+        <div class="footerContainer">
+          <p>© Joyería Murguia. todos los derechos reservados.</p>
+    
+          <figure class="imageContainerApps">
+            <img class="imageApps" src="./assets/facebook.png" alt="Logo de Facebook">
+          </figure>
+    
+          <figure class="imageContainerApps">
+            <img class="imageApps" src="./assets/twitter.png" alt="Logo de Twitter">
+          </figure>
+        </div>
+        
+    </footer>
+</body>
+</html>

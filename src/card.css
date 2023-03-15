@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 100%;
+}
+/* ------------------ HEADER --------------------- */
+.containerHeader {
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    grid-template-rows: 70px;
+}
+.imageLogo {
+    width: 18%;
+}
+.inputBuscar {
+    width: 60%;
+    height: 30px;
+    padding: 7px;
+    border-radius: 4px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 1px solid rgb(216, 216, 216);
+    background-image: url(./assets/search.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    cursor: pointer;
+}
+.headerItemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pBienvenida {
+    font-size: 18px;
+    margin-right: 5%;
+}
+.shoppingCart {
+    width: 30px;
+    margin-right: 1%;
+}
+.cantidadArticulo {
+    width: 25px;
+    height: 25px;
+    background-color: #ff4747;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* ---------------------- BARRA DE NAVEGACIÓN ------------------------ */
+.navContainer {
+    height: 52px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: black;
+}
+.opciones {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.opciones:hover {
+    text-decoration-line: underline;
+}
+.navItemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------------------- DETALLES DE LAS TARJETAS ------------------ */
+.containerDetailCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.contenedorFondo {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./assets/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.contenedorGrid {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* ------------------- PARTE FRONTAL DE LA TARJETA ------------------ */
+.contenedorFlexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imageCard {
+    position: relative;
+}
+.logoMarca {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 330px;
+}
+.chip {
+    width: 50px;
+    position: absolute;
+    top: 70px;
+    left: 35px;
+}
+.informacion {
+    position: relative;
+    top: -100px;
+}
+.numero {
+    color: white;
+    margin-left: 15px;
+    font-size: 30px;
+    font-family: monospace;
+}
+.nombre, .expiracion {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+/* ------------------------- PARTE TRASERA DE LA TARJETA ------------------------- */
+.imageCardTwo {
+    position: relative;
+}
+.information {
+    position: absolute;
+    top: 110px;
+    left: 360px;
+}
+.cvv {
+    color: white;
+    font-size: 20px;
+}
+
+/* --------------------------- FORMULARIO ----------------------- */
+.formContainerAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerItemsOne {
+    display: flex;
+    flex-direction: column;
+}
+.containerItemsOne input {
+    text-transform: uppercase;
+    text-align: center;
+}
+.grupoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.grupoGrid select {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    border: 1px solid rgb(229 229 229);
+    padding-right: 20px;
+}
+.grupoExpira {
+    display: flex;
+}
+.containerItemsOne label {
+    font-size: 14px;
+    color: rgb(54, 4, 82);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.containerItemsOne input{
+    border: 1px solid rgb(229 229 229);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.containerItemsTwo label {
+    font-size: 14px;
+    color: rgb(54, 4, 82);
+    font-weight: bold;
+    margin-right: 15%;
+}
+.containerItemsTwo input {
+    border: 1px solid rgb(229 229 229);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+.btnEnviar {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: rgb(34 9 48);
+    color: white;
+    font-size: 18px;
+    font-family: monospace;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btnEnviar:hover {
+    background-color: black;
+}
+.containerItemsOne input:hover,
+.containerItemsTwo select:hover,
+.containerItemsTwo input:hover {
+    border: 1px solid rgb(198 76 213);
+}
+    
+.containerItemsOne input:focus,
+.containerItemsTwo select:focus,
+.containerItemsTwo input:focus {
+    outline: rgb(4, 4, 4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
+}
+
+/* ------------------------------ FOOTER ------------------------ */
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: 70px;
+}
+.footerContainer p {
+    font-size: 15px;
+    color: white;
+    margin-right: 2%;
+}
+.imageContainerApps {
+    background-color: white;
+    width: 55px;
+    height: 50px;
+    margin-right: 1%;
+    border-radius: 5px;
+    text-align: center;
+}
+.imageContainerApps:hover {
+    background-color: #ff4747;
+}
+.imageApps {
+    width: 30px;
+    height: 30px;
+    margin-top: 15%;
+}

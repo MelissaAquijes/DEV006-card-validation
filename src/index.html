@@ -1,14 +1,238 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Tarjeta de crédito válida</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="index.js" type="module"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyeria Murguia</title>
+  <link rel="shortcut icon" href="./assets/joya.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!---------------------- CREANDO EL LOGO Y BUSQUEDAD DE LA TIENDA DE JOYAS --------------------------->
+  <header>
+    <div class="containerHeader">
+
+      <div class="headerItemContainer">
+        <img class="imageLogo" src="./assets/logo1.jpg" alt="Logo de la empresa Cristal Joyas">
+      </div>
+
+      <div class="headerItemContainer">
+        <input class="inputBuscar" type="text" placeholder="Buscar en productos">
+      </div>
+
+      <div class="headerItemContainer">
+        <p class="pBienvenida">Hola, Melissa Aquijes</p>
+        <img class="shoppingCart" src="./assets/carrito.png" alt="Artículos en cesta">
+        <span class="cantidadArticulo">4</span>
+      </div>    
+
+    </div>
+  </header>
+
+  <!---------------------  CREANDO LAS OPCIONES DE TIPOS DE JOYAS DE LA TIENDA DE JOYAS ------------------------------->
+  <nav>
+    <div class="navContainer">
+      
+      <div class="navItemContainer">
+        <a class="opciones" href="">RELOJERÍA</a>
+      </div>
+
+      <div class="navItemContainer">
+        <a class="opciones" href="">JOYERÍA ORO</a>
+      </div>
+
+      <div class="navItemContainer">
+        <a class="opciones" href="">JOYERÍA PLATA</a>
+      </div>
+
+      <div class="navItemContainer">
+        <a class="opciones" href="">JOYERÍA ACERO</a>
+      </div>
+
+      <div class="navItemContainer">
+        <a class="opciones" href="">OUTLET</a>
+      </div>
+      
+    </div>
+  </nav>
+
+ <!--------------------- CREANDO LOS MODELOS DE RELOJ Y LISTADO DE COMPRAS DE LA TIENDA DE JOYAS --------------------------->
+  <section class="sectionContainer">
+    <div class="sectionItemContainer">
+
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj1.jpg" alt="Daniel Wellington Clasic Durham 40mm">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Daniel Wellington Clasic Durham 40mm</a>
+          <p>S/.189</p>
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+      
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj2.jpg" alt="Reloj Lotus Cronógrafo Acero Esfera Verde">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Lotus Cronógrafo Acero Esfera Verde</a>
+          <p>S/.129</p>
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+      
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj3.jpg" alt="Reloj Daniel Wellington Quadro Pressed Melrose Esfera Verde 20x26mm">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Daniel Wellington Quadro Pressed Melrose Esfera Verde 20x26mm</a>
+          <p>S/.169</p>
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj4.jpg" alt="Reloj Daniel Wellington Iconic Link Lumine 32mm">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Daniel Wellington Iconic Link Lumine 32mm</a>
+          <p>S/.249</p>
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+      
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj5.jpg" alt="Reloj Daniel Wellington Iconic Link Blanco Oro Rosa 36 mm">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Daniel Wellington Iconic Link Blanco Oro Rosa 36 mm</a>
+          <p>S/.209</p>
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj6.jpg" alt="Reloj Daniel Wellington Ceramic 28 mm. Negro">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Daniel Wellington Ceramic 28 mm. Negro</a>
+          <p>S/.249</p>  
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj7.jpg" alt="Reloj Festina Madmoiselle Swarovski F20331/3">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Festina Madmoiselle Swarovski F20331/3</a>
+          <p>S/.129</p>  
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+
+      <div class="imageContainer">
+        <figure>
+          <img class="imageReloj" src="./assets/reloj8.jpg" alt="Reloj Lotus Mujer Clasico 18574/A">
+        </figure>
+        <div class="divNamesReloj">
+          <a href="">Reloj Lotus Mujer Clasico 18574/A</a>
+          <p>S/.79</p>  
+          <button class="buttonAddCart">+ Add to cart</button>
+        </div>
+      </div>
+      
+    </div>
+ 
+    <!------------------------------- CREANDO LA LISTA DE COMPRAS ---------------------------------------->
+    <aside>
+      <div class="allContainerItems">
+        <div class="titleContainer">
+          <figure>
+            <img class="iconFlecha" src="./assets/flechita.svg" alt="Es el signo menor">
+          </figure>
+          <p class="pMyshopping">Mis compras</p>
+        </div>
+  
+        <div class="divItemShop">
+          <figure>
+            <img class="itemShop" src="./assets/reloj3.jpg" alt="Reloj Daniel Wellington Quadro Pressed Melrose Esfera Verde 20x26mm">
+          </figure>
+          <p>Reloj Daniel Wellington Quadro Pressed Melrose Esfera Verde 20x26mm</p>
+          <p class="price">S/.169</p>
+          <img class="imageClose" src="./assets/icon_close.png" alt="Icono de una X">
+        </div>
+  
+        <div class="divItemShop">
+          <figure>
+            <img class="itemShop" src="./assets/reloj1.jpg" alt="Daniel Wellington Clasic Durham 40mm 20x26mm">
+          </figure>
+          <p>Daniel Wellington Clasic Durham 40mm</p>
+          <p class="price">S/.189</p>
+          <img class="imageClose" src="./assets/icon_close.png" alt="Icono de una X">
+        </div>
+  
+        <div class="divItemShop">
+          <figure>
+            <img class="itemShop" src="./assets/reloj6.jpg" alt="Reloj Daniel Wellington Ceramic 28 mm. Negro 20x26mm">
+          </figure>
+          <p>Reloj Daniel Wellington Ceramic 28 mm. Negro</p>
+          <p class="price">S/.249</p>
+          <img class="imageClose" src="./assets/icon_close.png" alt="Icono de una X">
+        </div>
+  
+        <div class="divItemShop">
+          <figure>
+            <img class="itemShop" src="./assets/reloj2.jpg" alt="Reloj Lotus Cronógrafo Acero Esfera Verde 20x26mm">
+          </figure>
+          <p>Reloj Lotus Cronógrafo Acero Esfera Verde</p>
+          <p class="price">S/.129</p>
+          <img class="imageClose" src="./assets/icon_close.png" alt="Icono de una X">
+        </div>
+  
+        <div class="containerTotal">
+          <p>Total</p>
+          <p>S/.736</p>
+        </div>
+
+        <div class="containerButton">
+          <button class="buttonShop">
+            <a href="card.html">Ir a comprar</a>
+          </button>
+        </div>
+        
+      </div>
+      
+    </aside>
+    
+  </section>
+
+  <!---------------------- CREANDO EL PIE DE PÁGINA DE LA TIENDA DE JOYAS --------------------->
+  <footer>
+    <div class="footerContainer">
+      <p>© Joyería Murguia. todos los derechos reservados.</p>
+
+      <figure class="imageContainerApps">
+        <img class="imageApps" src="./assets/facebook.png" alt="Logo de Facebook">
+      </figure>
+
+      <figure class="imageContainerApps">
+        <img class="imageApps" src="./assets/twitter.png" alt="Logo de Twitter">
+      </figure>
+    </div>
+    
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
 </html>

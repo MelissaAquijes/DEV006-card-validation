@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 100%;
+}
+/* DETALLES DEL HEADER TIENDA DE JOYAS*/
+.containerHeader {
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    grid-template-rows: 70px;
+}
+.imageLogo {
+    width: 18%;
+}
+.inputBuscar {
+    width: 60%;
+    height: 30px;
+    padding: 7px;
+    border-radius: 4px;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 1px solid rgb(216, 216, 216);
+    background-image: url(./assets/search.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    cursor: pointer;
+}
+.headerItemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pBienvenida {
+    font-size: 18px;
+    margin-right: 5%;
+}
+.shoppingCart {
+    width: 30px;
+    margin-right: 1%;
+}
+.cantidadArticulo {
+    width: 25px;
+    height: 25px;
+    background-color: #ff4747;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* DETALLES DEL NAV TIENDA DE JOYAS*/
+.navContainer {
+    height: 52px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: black;
+}
+.opciones {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.opciones:hover {
+    text-decoration-line: underline;
+}
+.navItemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* DETALLES DE LA SECCION DE RELOJES Y COMPRA DE LA TIENDA DE JOYAS*/
+.sectionContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.sectionItemContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.imageContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow:hidden;
+    margin-left: 10%;
+}
+.imageContainer:hover {
+    box-shadow: 0 4px 15px rgb(153 153 153 / 30%);
+    transition: 0.3s;
+} 
+.imageReloj {
+    width: 150px;
+    height: 170px;
+}
+.divNamesReloj {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divNamesReloj a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.divNamesReloj p {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.buttonAddCart {
+    width: 120px;
+    height: 30px;
+    font-size: 17px;
+    margin-top: 10%;
+    border-radius: 15px;
+    border: none;
+    background-color: #ff4747;
+    color: white;
+    cursor: pointer;
+}
+
+/* DETALLES DE LA LISTA DE COMPRAS */
+aside {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+.allContainerItems {
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    width: 50%;
+}
+.titleContainer {
+    display: flex;
+    margin-top: 10%;
+}
+.iconFlecha {
+    transform: rotate(180deg);
+    width: 12px;
+    margin-top: 5px;
+}
+.pMyshopping {
+    font-size: 25px;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+.divItemShop {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 19px;
+    margin-top: 1%;
+    align-items: center;
+}
+.itemShop{
+    width: 100px;
+    border-radius: 10px;
+}
+.price {
+    font-weight: bold;
+}
+.imageClose {
+    width: 14px;
+    cursor: pointer;
+}
+.containerTotal {
+    display: grid;
+    height: 35px;
+    grid-template-columns: auto 1fr;
+    background-color: #F7F7F7;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 0 35px;
+}
+.containerTotal p {
+    text-align: end;
+    font-weight: bold;
+    margin-top: 8px;
+}
+.containerButton {
+    display: flex;
+    justify-content: center;
+}
+.buttonShop {
+    background-color: #ff4747;
+    border-radius: 8px;
+    border: none;
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+    
+}
+.buttonShop a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold; 
+}
+.buttonShop:hover {
+    background-color: black;
+}
+
+/* DETALLES DEL PIE DE PÁGINA DE LA TIENDA DE JOYAS */
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    background-color: black;
+    height: 70px;
+}
+.footerContainer p {
+    font-size: 15px;
+    color: white;
+    margin-right: 2%;
+}
+.imageContainerApps {
+    background-color: white;
+    width: 55px;
+    height: 50px;
+    margin-right: 1%;
+    border-radius: 5px;
+    text-align: center;
+}
+.imageContainerApps:hover {
+    background-color: #ff4747;
+}
+.imageApps {
+    width: 30px;
+    height: 30px;
+    margin-top: 15%;
+}
