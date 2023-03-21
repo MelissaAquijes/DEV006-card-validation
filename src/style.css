@@ -7,18 +7,18 @@ html {
     font-family: 'Roboto Condensed', sans-serif;
     width: 100%;
 }
-/* DETALLES DEL HEADER TIENDA DE JOYAS*/
+/* ---------------------- LOGO Y BUSQUEDAD --------------------------- */
 .containerHeader {
     display: grid;
     grid-template-columns:  repeat(3, 1fr);
-    grid-template-rows: 70px;
+    height: 10vh;
 }
 .imageLogo {
     width: 18%;
 }
 .inputBuscar {
     width: 60%;
-    height: 30px;
+    height: 40px;
     padding: 7px;
     border-radius: 4px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -52,7 +52,7 @@ html {
     color: white;
 }
 
-/* DETALLES DEL NAV TIENDA DE JOYAS*/
+/* ---------------------- BARRA DE OPCIONES ------------------------ */
 .navContainer {
     height: 52px;
     display: grid;
@@ -73,7 +73,7 @@ html {
     justify-content: center;
 }
 
-/* DETALLES DE LA SECCION DE RELOJES Y COMPRA DE LA TIENDA DE JOYAS*/
+/* ------------------- MODELOS DE RELOJ Y LISTADO DE COMPRAS ----------------------*/
 .sectionContainer {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -86,7 +86,9 @@ html {
 .imageContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 10%;
+    margin-bottom: 5%;
     font-size: 18px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -102,9 +104,9 @@ html {
     height: 170px;
 }
 .divNamesReloj {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    width: 250px;
+    justify-items: center;
 }
 .divNamesReloj a {
     text-decoration: none;
@@ -127,22 +129,26 @@ html {
     cursor: pointer;
 }
 
-/* DETALLES DE LA LISTA DE COMPRAS */
+/* ------------------- LISTA DE COMPRAS ---------------------- */
 aside {
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
+    margin-top: 5%;
 }
 .allContainerItems {
     display: grid;
     grid-template-rows: repeat(6, auto);
-    width: 50%;
+    width: 45%;
+    height: 100vh;
+    padding: 10px 15px 10px 10px;
+    box-shadow: -1px 0px 14px 2px rgba(153,153,153,1);
+    border-radius: 15px;
 }
 .titleContainer {
     display: flex;
-    margin-top: 10%;
 }
-.iconFlecha {
+.iconFlecha { 
     transform: rotate(180deg);
     width: 12px;
     margin-top: 5px;
@@ -150,13 +156,11 @@ aside {
 .pMyshopping {
     font-size: 25px;
     margin-left: 5%;
-    margin-bottom: 5%;
 }
 .divItemShop {
     display: grid;
     grid-template-columns: auto 1fr auto auto;
     gap: 19px;
-    margin-top: 1%;
     align-items: center;
 }
 .itemShop{
@@ -207,12 +211,11 @@ aside {
     background-color: black;
 }
 
-/* DETALLES DEL PIE DE PÁGINA DE LA TIENDA DE JOYAS */
+/* ------------------- PIE DE PÁGINA ---------------------- */
 .footerContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
     background-color: black;
     height: 70px;
 }
@@ -236,4 +239,153 @@ aside {
     width: 30px;
     height: 30px;
     margin-top: 15%;
+}
+/* --------------------- TARJETAS ------------------ */
+.containerDetailCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.contenedorFondo {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./assets/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.contenedorGrid {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+} 
+
+/* ------------------- PARTE FRONTAL DE LA TARJETA ------------------ */
+.contenedorFlexbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.infoCardFrontal {
+    position: relative;
+    color: #fff;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+.infoCardFrontal figure img {
+    margin-top: 50px;
+}
+.logoVisa img {
+    width: 100px;
+    position: absolute;
+    top: 50px;
+    left: 330px;
+}
+.chip {
+    width: 50px;
+    position: absolute;
+    top: 70px;
+    left: 35px;
+}
+.informacion {
+    position: relative;
+    top: -100px;
+    padding: 10px; 
+}
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.expiracion {
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+/* ------------------------- PARTE TRASERA DE LA TARJETA ------------------------- */
+.infoCardDetras {
+    position: relative;
+}
+.information {
+    position: absolute;
+    top: 110px;
+    left: 360px;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* --------------------------- FORMULARIO ----------------------- */
+.formContainerAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 50%;
+}
+.containerGridForm {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+.containerGridForm label {
+    font-size: 14px;
+    color: rgb(54, 4, 82);
+    font-weight: bold;
+}
+.containerGridForm input{
+    border: 1px solid rgb(229 229 229);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.grupoFlexbox {
+    display: flex;
+    justify-content: space-between;
+}
+.grupoSelect {
+    width: 50%;
+    display: flex;
+}
+.select{
+    width: 100%;
+} 
+.select select {
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(229 229 229);
+}
+.positioncvv {
+    position: relative;
+    bottom: 20px;
+} 
+.btnEnviar {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: rgb(34 9 48);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btnEnviar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: monospace;
+}
+.btnEnviar:hover {
+    background-color: black;
+}
+.containerGridForm input:hover,
+.containerGridForm select:hover {
+    border: 1px solid rgb(198 76 213);
+} 
+.containerGridForm input:focus,
+.containerGridForm select:focus {
+    outline: rgb(4, 4, 4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
 }
