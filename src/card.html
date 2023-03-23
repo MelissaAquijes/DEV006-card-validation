@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <!----------------- LOGO Y BUSQUEDAD ------------------>
@@ -75,11 +77,8 @@
                     
                     <img class="chip" src="./assets/chip-tarjeta.png" alt="Chip de tarjeta">
                     
-                    <div class="informacion" >
-                         <p id="numero">#### #### #### ####</p> 
-                    </div>
-                    <p > </p>
-
+                    <div class="informacion" id="numero"></div>
+                    
                     <div class="flexbox" >
                       <div class="informacion" >
                           <p id="nombre" >------------</p>
@@ -118,12 +117,12 @@
 
                 <div>
                   <label for="inputNombreTarjeta">Nombre del titular:</label>
-                  <input type="text" id="inputNombreTarjeta" required>
+                  <input type="text" id="inputNombreTarjeta" required placeholder="Nombre y Apellido">
                 </div>
 
                 <div>
                   <label for="inputNumeroTarjeta">Número de Tarjeta:</label>
-                  <input type="text" id="inputNumeroTarjeta" maxlength="19" autocomplete="off" required>
+                  <input type="text" id="inputNumeroTarjeta" maxlength="19" autocomplete="off" required placeholder="Ej. 1234 5678 9012 3456">
                   <p class="alertIsValid" id="alertIsValid"></p>
                 </div>
                 
@@ -148,16 +147,16 @@
   
                     <div class="positioncvv">
                       <label for="inputCVV">CVV</label>
-                      <input class="inputcvv" type="text" id="inputCVV" maxlength="3" required>
+                      <input class="inputcvv" type="text" id="inputCVV" maxlength="3" required placeholder="Ej. 123">
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <button type="submit" class="btnEnviar " id="btnPagar">
-                    PAGAR
-                  </button>
-                  <div id="mensajeFinal"></div>
+                  <button type="submit" class="btnEnviar " id="btnPagar">Confirmar</button>
+
+                  <div class="mensajeFinal" id="mensajeFinal"></div>
+
                 </div>
 
             </div>

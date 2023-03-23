@@ -116,7 +116,8 @@ btnPagar.addEventListener('click', (event) => {
 
   if(numberIsValid===true && numeroDeTarjetaPuro.length > 0) {
     alertIsValid.innerText=("La tarjeta es válida.")
-    mensajeFinal.innerText = ('HOLA');
+    mensajeFinal.innerText = ('Gracias por tu compra!');
+
   }else {
     alertIsValid.innerText=("La tarjeta no es válida. Ingrese correctamente")
   }
@@ -124,4 +125,3 @@ btnPagar.addEventListener('click', (event) => {
   event.preventDefault();
     
 });
-
