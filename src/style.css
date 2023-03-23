@@ -45,7 +45,7 @@ html {
 .cantidadArticulo {
     width: 25px;
     height: 25px;
-    background-color: #ff4747;
+    background: rgba(81,21,106,1);
     border-radius: 20px;
     font-size: 20px;
     text-align: center;
@@ -118,13 +118,13 @@ html {
     margin-top: 10px;
 }
 .buttonAddCart {
-    width: 120px;
-    height: 30px;
+    width: 60%;
+    height: 40px;
     font-size: 17px;
     margin-top: 10%;
-    border-radius: 15px;
+    border-radius: 25px;
     border: none;
-    background-color: #ff4747;
+    background-image: linear-gradient(65deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
     color: white;
     cursor: pointer;
 }
@@ -193,23 +193,24 @@ aside {
     justify-content: center;
 }
 .buttonShop {
-    background-color: #ff4747;
+    background-image: linear-gradient(65deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
     border-radius: 8px;
     border: none;
-    width: 300px;
+    width: 60%;
     height: 50px;
     cursor: pointer;
-    
 }
 .buttonShop a {
+    
     text-decoration: none;
     color: white;
     font-size: 18px;
     font-weight: bold; 
 }
 .buttonShop:hover {
-    background-color: black;
+    box-shadow: 2px 2px 10px 0 #680832, 4px 4px 10px 0  #221b54, 0px 0px 10px 2px #0e35c4;
 }
+
 
 /* ------------------- PIE DE PÁGINA ---------------------- */
 .footerContainer {
@@ -338,9 +339,15 @@ aside {
     width: 100%;
     height: 40px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     text-align: center;
     text-transform: uppercase;
+    margin-top: 7px;
+}
+.alertIsValid {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 30px;
 }
 .grupoFlexbox {
     display: flex;
@@ -349,6 +356,7 @@ aside {
 .grupoSelect {
     width: 50%;
     display: flex;
+    margin-top: 7px;
 }
 .select{
     width: 100%;
@@ -367,12 +375,9 @@ aside {
     width: 100%;
     height: 50px;
     border: none;
-    background-color: rgb(34 9 48);
+    background-image: linear-gradient(65deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
     border-radius: 10px;
     cursor: pointer;
-}
-.btnEnviar a {
-    text-decoration: none;
     color: white;
     font-size: 18px;
     font-family: monospace;
