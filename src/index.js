@@ -20,11 +20,9 @@ const inputCVV = document.querySelector('#inputCVV');
 const cvv = document.querySelector('#ccv');
 
 const btnPagar = document.querySelector("#btnPagar");
-
-
-
 const mensajeFinal = document.querySelector('#mensajeFinal');
 
+ 
 // --------------------------- INPUT NOMBRE DE TARJETA ----------------------------------
 inputNombreTarjeta.addEventListener('keyup', (letrita) => {
   const valorInputNombre = letrita.target.value;
