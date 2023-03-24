@@ -4,7 +4,7 @@
 
 * [1. Introducción](#1-introducción)
 * [2. Funcionalidad](#2-funcionalidad)
-* [3. Decisiones de Diseño](#3-decisiones de diseño)
+* [3. Decisiones de diseño](#3-decisiones-de-diseño)
 
 
 ## 1. Introducción
@@ -16,6 +16,12 @@ Luhn.
 La primera página cuenta con una simulación de compras por defecto, al pasar a realizar dicha compra,
 nos llevará a una página para pagar, donde estará nuestra tarjeta de crédito virtual que contendrá
 todas nuestras funciones de interacción para el usuario.
+
+![prototipo](src/assets/diseño1.1.png)
+
+![prototipo](src/assets/diseño1.2.png)
+
+
 
 ## 2. Funcionalidad
 
@@ -37,7 +43,7 @@ número de tarjeta, mes, año y cvv o cvc.
 
 Se realizó un prototipo de baja fidelidad y mediante ello se paso a ejecutar la creación de la página.
 
-![prototipo]()
+![prototipo](src/assets/diseño1.png)
 
+![prototipo](src/assets/diseño2.png)
 
-             
