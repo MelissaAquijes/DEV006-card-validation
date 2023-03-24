@@ -18,7 +18,7 @@
     <header>
           <div class="containerHeader">
                 <div class="headerItemContainer">
-                    <img class="imageLogo" src="./assets/logo1.jpg" alt="Logo de la empresa Cristal Joyas">
+                    <img class="imageLogo" src="./assets/logo1.jpg" alt="Logo de la empresa Murguia Joyeria">
                 </div>
       
                 <div class="headerItemContainer">
@@ -71,20 +71,22 @@
                       <img  src="./assets/frontal-card.png" alt="Tarjeta parte frontal">
                     </figure>
                     
-                    <div class="logoVisa" id="logoMarca">
-                      <!-- <img src="./assets/visa.png" alt="Logo Visa">  -->
-                    </div>
+                    <!---------- CAMBIO DE LOGO --------->
+                    <div class="logoVisa" id="logoMarca"></div>
                     
                     <img class="chip" src="./assets/chip-tarjeta.png" alt="Chip de tarjeta">
                     
+                    <!------- MOSTRAR NÚMERO EN LA TARJETA ------->
                     <div class="informacion" id="numero"></div>
                     
                     <div class="flexbox" >
                       <div class="informacion" >
+                        <!------- MOSTRAR NOMBRE EN LA TARJETA ------->
                           <p id="nombre" >------------</p>
                       </div>
 
                       <div class="informacion">
+                        <!------- MOSTRAR MES Y AÑO EN LA TARJETA ------->
                           <p><span class="mes">MM</span> / <span class="year">YY</span></p>
                       </div>
                     </div>  
@@ -98,6 +100,7 @@
                     <img src="./assets/detras-card.png" alt="Reverso de la tarjeta">
                   </figure>
                
+                  <!------- MOSTRAR CVV EN LA TARJETA ------->
                   <div class="information" id="ccv">
                     <p>CVV</p>
                   </div>
@@ -117,12 +120,15 @@
 
                 <div>
                   <label for="inputNombreTarjeta">Nombre del titular:</label>
-                  <input type="text" id="inputNombreTarjeta" required placeholder="Nombre y Apellido">
+                  <!---------------- INPUT NOMBRE DE TARJETA ----------------->
+                  <input type="text" id="inputNombreTarjeta" placeholder="Nombre y Apellido" required >
                 </div>
 
+                
                 <div>
                   <label for="inputNumeroTarjeta">Número de Tarjeta:</label>
-                  <input type="text" id="inputNumeroTarjeta" maxlength="19" autocomplete="off" required placeholder="Ej. 1234 5678 9012 3456">
+                  <!---------------- INPUT NÚMERO DE TARJETA ----------------->
+                  <input type="text" id="inputNumeroTarjeta" placeholder="Ej. 1234 5678 9012 3456" maxlength="19" autocomplete="off" required >
                   <p class="alertIsValid" id="alertIsValid"></p>
                 </div>
                 
@@ -133,12 +139,15 @@
                     <div class="grupoSelect">
 
                       <div class="select">
+                        <!------------------ SELECTBOX MES -------------------->
                         <select name="mes" id="selectMes">
                           <option disabled selected>Mes</option>
                         </select>
                       </div>
   
+                      
                       <div class="select"> 
+                        <!----------------- SELECTBOX AÑO --------------------->
                         <select name="year" id="selectYear">
                           <option disabled selected>Año</option>
                         </select>
@@ -147,7 +156,8 @@
   
                     <div class="positioncvv">
                       <label for="inputCVV">CVV</label>
-                      <input class="inputcvv" type="text" id="inputCVV" maxlength="3" required placeholder="Ej. 123">
+                      <!------------------- INPUT CVV --------------------->
+                      <input class="inputcvv" type="text" id="inputCVV" maxlength="3"  placeholder="Ej. 123" required>
                     </div>
                   </div>
                 </div>

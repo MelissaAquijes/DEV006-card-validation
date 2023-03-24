@@ -1,53 +1,57 @@
 import validator from "./validator.js";
 
-const selectMes = document.querySelector('#selectMes');
-const selectYear = document.querySelector('#selectYear');
-const inputNumeroTarjeta = document.querySelector('#inputNumeroTarjeta');
-const mostrarNumeroTarjeta = document.querySelector('#numero');
-const logoVisa = document.querySelector('#logoMarca');
 const inputNombreTarjeta = document.querySelector('#inputNombreTarjeta');
 const mostrarNombreTarjeta = document.querySelector('#nombre');
-const mes = document.querySelector('.mes');
-const year = document.querySelector('.year');
-const inputCVV = document.querySelector('#inputCVV');
-const cvv = document.querySelector('#ccv');
-const btnPagar = document.querySelector("#btnPagar");
+
+const inputNumeroTarjeta = document.querySelector('#inputNumeroTarjeta');
+let numeroDeTarjetaPuro=""
 const alertIsValid = document.querySelector("#alertIsValid");
 let maskNumber = ""
-let numeroDeTarjetaPuro=""
+const mostrarNumeroTarjeta = document.querySelector('#numero');
+
+const logoMarca = document.querySelector('#logoMarca');
+
+const selectMes = document.querySelector('#selectMes');
+const selectYear = document.querySelector('#selectYear');
+const mes = document.querySelector('.mes');
+const year = document.querySelector('.year');
+
+const inputCVV = document.querySelector('#inputCVV');
+const cvv = document.querySelector('#ccv');
+
+const btnPagar = document.querySelector("#btnPagar");
+
+
+
 const mensajeFinal = document.querySelector('#mensajeFinal');
 
+// --------------------------- INPUT NOMBRE DE TARJETA ----------------------------------
+inputNombreTarjeta.addEventListener('keyup', (letrita) => {
+  const valorInputNombre = letrita.target.value;
 
-// select del mes generado dinamicamente //
-for (let i = 1; i <= 12; i++) {
-  const opcion = document.createElement('option');
-  opcion.innerText = i;
-  selectMes.appendChild(opcion);
-}
+  inputNombreTarjeta.value = valorInputNombre.replace(/[0-9]/g, '');
+  mostrarNombreTarjeta.textContent = valorInputNombre;
 
-// select del año generado automaticamente //
-const yearActual = new Date().getFullYear();
-for (let i = yearActual; i <= yearActual +8; i++) {
-  const opcion = document.createElement('option');
-  opcion.innerText = i;
-  selectYear.appendChild(opcion);
-}
+  // -------- MOSTRAR LOS ---- EN LA TARJETA AL ELIMINAR EL NOMBRE DEL INPUT ------
+  if (valorInputNombre === '') {
+    mostrarNombreTarjeta.textContent = '------------';
+  }
+});
 
-// input numero de tarjeta //
+
+// ------------------------------------- INPUT NÚMERO DE TARJETA -------------------------------------
 inputNumeroTarjeta.addEventListener('keyup', (e) => {
   const digitoTarget = e.target.value;
     
   inputNumeroTarjeta.value = digitoTarget
-  // eliminamos espacios en blanco
+  // ------------- ELIMINAMOS ESPACIOS EN BLANCO ----------------
     .replace(/\s/g, '')
-    // eliminar las letras
+  // ------------- ELIMINAR LAS LETRAS --------------------------
     .replace(/\D/g, '')
-    // ponemos espacio cada 4 numeros
+  // ------------- PONEMOS ESPACIO CADA 4 NÚMEROS ---------------
     .replace(/([0-9]{4})/g, '$1 ') 
-    // elimina el ultimo espaciado
+  // ------------- ELIMINA EL ÚLTIMO ESPACIO --------------------
     .trimEnd()
-
- 
 
   numeroDeTarjetaPuro =inputNumeroTarjeta.value.replace(/\s/g, '')   //213213213213"7666"
   
@@ -55,61 +59,66 @@ inputNumeroTarjeta.addEventListener('keyup', (e) => {
   if(numeroDeTarjetaPuro.length<16) {
     alertIsValid.innerText=("")
   }
-  //Enmascarando los numeros usando el metodo validator.maskify(creditCardNumber)
+  // -------- ENMASCARANDO LOS NÚMEROS USANDO EL MÉTODO validator.maskify(creditCardNumber) -----------
   maskNumber = validator.maskify(numeroDeTarjetaPuro) //############7666  
   mostrarNumeroTarjeta.textContent =maskNumber.replace(/([^0-9]{4})/g, '$1 ') // #### #### #### 1234 
   
-  //cambio de logo-marca 
+  // --------------------------- CAMBIO DE LOGO VISA O MASTERCARD -------------------------------------
   if (digitoTarget === '') {
-    logoVisa.innerHTML = '';      
+    logoMarca.innerHTML = '';      
   }
   if (digitoTarget[0] == 4) {
     const imagen = document.createElement('img');
     imagen.src = './assets/visa.png';
-    logoVisa.appendChild(imagen);
+    logoMarca.appendChild(imagen);
   } else if (digitoTarget[0] == 5) {
     const imagen = document.createElement('img');
     imagen.src = './assets/mastercard.png';
-    logoVisa.appendChild(imagen);
+    logoMarca.appendChild(imagen);
   }
 });
 
-// input nombre de tarjeta
-inputNombreTarjeta.addEventListener('keyup', (letrita) => {
-  const valorInputNombre = letrita.target.value;
 
-  inputNombreTarjeta.value = valorInputNombre.replace(/[0-9]/g, '');
-  mostrarNombreTarjeta.textContent = valorInputNombre;
+// ----------------------------- SELECTBOX MES GENERADO DINAMICAMENTE --------------------- 
+for (let i = 1; i <= 12; i++) {
+  const opcion = document.createElement('option');
+  opcion.innerText = i;
+  selectMes.appendChild(opcion);
+}
 
-  // mostrar el -- al eliminar el nombre
-  if (valorInputNombre === '') {
-    mostrarNombreTarjeta.textContent = '------------';
-  }
-});
+// ----------------------------- SELECTBOX AÑO GENERADO DINAMICAMENTE --------------------- 
+const yearActual = new Date().getFullYear();
+for (let i = yearActual; i <= yearActual +8; i++) {
+  const opcion = document.createElement('option');
+  opcion.innerText = i;
+  selectYear.appendChild(opcion);
+}
 
-// seleccionar mes de expiración
+// ----------------------------- MOSTRAR MES DE EXPIRACIÓN EN LA TARJETA ----------------------------
 selectMes.addEventListener('change', (e) => {
   mes.textContent = e.target.value;
 });
 
-// seleccionar año de expiración
+// ----------------------------- MOSTRAR AÑO DE EXPIRACIÓN EN LA TARJETA -----------------------------
 selectYear.addEventListener('change', (e) => {
   year.textContent = e.target.value.slice(2);
 });
 
-// CVV
+
+// -----------------------------------INPUT CVV ------------------------------------------------
 inputCVV.addEventListener('keyup', () =>{
   inputCVV.value = inputCVV.value
-    // eliminamos espacios en blanco
+  // ---------------- ELIMINAMOS ESPACIOS EN BLANCO ----------------
     .replace(/\s/g, '')
-    // eliminar las letras
+  // ---------------- ELIMINAR LAS LETRAS --------------------------
     .replace(/\D/g, '');
 
-  //mostramos digitos del cvv en la tarjeta 
+  // ----------- MOSTRAMOS DÍGITOS DEL CVV EN LA TARJETA -----------
   cvv.textContent = inputCVV.value;
 });
 
-// Validando el número de la tarjeta 
+
+// ------------------------------- VALIDANDO EL NÚMERO DE LA TARJETA --------------------------- 
 btnPagar.addEventListener('click', (event) => {
 
   const numberIsValid = validator.isValid(numeroDeTarjetaPuro)
