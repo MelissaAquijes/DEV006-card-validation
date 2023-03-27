@@ -4,7 +4,7 @@ const inputNombreTarjeta = document.querySelector('#inputNombreTarjeta');
 const mostrarNombreTarjeta = document.querySelector('#nombre');
 
 const inputNumeroTarjeta = document.querySelector('#inputNumeroTarjeta');
-let numeroDeTarjetaPuro=""
+let numeroDeTarjetaPuro = ""
 const alertIsValid = document.querySelector("#alertIsValid");
 let maskNumber = ""
 const mostrarNumeroTarjeta = document.querySelector('#numero');
@@ -38,38 +38,41 @@ inputNombreTarjeta.addEventListener('keyup', (letrita) => {
 
 
 // ------------------------------------- INPUT NÚMERO DE TARJETA -------------------------------------
-inputNumeroTarjeta.addEventListener('keyup', (e) => {
+inputNumeroTarjeta.addEventListener('input', (e) => {
   const digitoTarget = e.target.value;
-    
+  
   inputNumeroTarjeta.value = digitoTarget
   // ------------- ELIMINAMOS ESPACIOS EN BLANCO ----------------
     .replace(/\s/g, '')
   // ------------- ELIMINAR LAS LETRAS --------------------------
     .replace(/\D/g, '')
   // ------------- PONEMOS ESPACIO CADA 4 NÚMEROS ---------------
-    .replace(/([0-9]{4})/g, '$1 ') 
+    .replace(/([0-9]{4})/g, '$1 ')
   // ------------- ELIMINA EL ÚLTIMO ESPACIO --------------------
-    .trimEnd()
-
-  numeroDeTarjetaPuro =inputNumeroTarjeta.value.replace(/\s/g, '')   //213213213213"7666"
+    .trimEnd();
+ 
   
-  //dejando la alerta de validacion de numero de tarjeta en blanco si no se completan lo 
+  numeroDeTarjetaPuro =inputNumeroTarjeta.value.replace(/\s/g, '')   //2132 1321 3213 "7666"
+  
+  // -------- DESAPARECER ALERTA CUANDO ELIMINAMOS UN DIGITO MENOR A 16 --------------
   if(numeroDeTarjetaPuro.length<16) {
     alertIsValid.innerText=("")
   }
   // -------- ENMASCARANDO LOS NÚMEROS USANDO EL MÉTODO validator.maskify(creditCardNumber) -----------
   maskNumber = validator.maskify(numeroDeTarjetaPuro) //############7666  
+
+  // ----------------- MOSTRAR NÚMERO EN LA TARJETA ---------------------------------
   mostrarNumeroTarjeta.textContent =maskNumber.replace(/([^0-9]{4})/g, '$1 ') // #### #### #### 1234 
   
   // --------------------------- CAMBIO DE LOGO VISA O MASTERCARD -------------------------------------
   if (digitoTarget === '') {
     logoMarca.innerHTML = '';      
   }
-  if (digitoTarget[0] == 4) {
+  if (digitoTarget[0] === '4') {
     const imagen = document.createElement('img');
     imagen.src = './assets/visa.png';
     logoMarca.appendChild(imagen);
-  } else if (digitoTarget[0] == 5) {
+  } else if (digitoTarget[0] === '5') {
     const imagen = document.createElement('img');
     imagen.src = './assets/mastercard.png';
     logoMarca.appendChild(imagen);
@@ -121,7 +124,7 @@ btnPagar.addEventListener('click', (event) => {
 
   const numberIsValid = validator.isValid(numeroDeTarjetaPuro)
 
-  if(numberIsValid===true && numeroDeTarjetaPuro.length > 0) {
+  if(numberIsValid) {
     alertIsValid.innerText=("La tarjeta es válida.")
     mensajeFinal.innerText = ('Gracias por tu compra!');
 

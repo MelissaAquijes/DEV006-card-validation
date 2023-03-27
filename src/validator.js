@@ -1,8 +1,8 @@
 
 
-const validator = {
+const validator = {          
 
-  isValid:(creditCardNumber) => {
+  isValid:(creditCardNumber) => {  
 
     const digitos = creditCardNumber.split("").map(Number).reverse();
     let suma = 0;
@@ -20,7 +20,7 @@ const validator = {
       }
     }
 
-    return suma % 10 === 0;
+    return suma!== 0 && suma % 10 === 0;
   }
 
   ,
