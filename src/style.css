@@ -1,27 +1,45 @@
+:root {
+    --yellow-color: #ffc300;
+    --black-color: #000000;
+    --blue-color: #14213d;
+    --white-color: #FFFFFF;
+    --red-color: #ff5b5b;
+    --lightGray-color: #E5E5E5;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 html {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-size: 62.5%;
+}
+
+/* header */
+.container-header {
     width: 100%;
+    min-width: 280px;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 8px;
 }
-/* ---------------------- LOGO Y BUSQUEDAD --------------------------- */
-.containerHeader {
-    display: grid;
-    grid-template-columns:  repeat(3, 1fr);
-    height: 10vh;
+
+.img-logo {
+    width: 80px;
 }
-.imageLogo {
-    width: 18%;
-}
-.inputBuscar {
-    width: 60%;
+
+.input-search {
+    width: 50%;
+    max-width: 300px;
     height: 40px;
     padding: 7px;
     border-radius: 4px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Nunito', sans-serif;
     border: 1px solid rgb(216, 216, 216);
     background-image: url(./assets/search.png);
     background-repeat: no-repeat;
@@ -29,376 +47,575 @@ html {
     background-position: right;
     cursor: pointer;
 }
-.headerItemContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.pBienvenida {
-    font-size: 18px;
-    margin-right: 5%;
-}
-.shoppingCart {
-    width: 30px;
-    margin-right: 1%;
-}
-.cantidadArticulo {
-    width: 25px;
-    height: 25px;
-    background: rgba(81,21,106,1);
-    border-radius: 20px;
-    font-size: 20px;
-    text-align: center;
-    color: white;
-}
 
-/* ---------------------- BARRA DE OPCIONES ------------------------ */
-.navContainer {
-    height: 52px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    background-color: black;
-}
-.opciones {
-    text-decoration: none;
-    color: white;
-    text-align: center;
-}
-.opciones:hover {
-    text-decoration-line: underline;
-}
-.navItemContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ------------------- MODELOS DE RELOJ Y LISTADO DE COMPRAS ----------------------*/
-.sectionContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-.sectionItemContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
-.imageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    font-size: 18px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    overflow:hidden;
-    margin-left: 10%;
-}
-.imageContainer:hover {
-    box-shadow: 0 4px 15px rgb(153 153 153 / 30%);
-    transition: 0.3s;
-} 
-.imageReloj {
-    width: 150px;
-    height: 170px;
-}
-.divNamesReloj {
-    display: grid;
-    width: 250px;
-    justify-items: center;
-}
-.divNamesReloj a {
-    text-decoration: none;
-    color: black;
-    text-align: center;
-}
-.divNamesReloj p {
+.p-user {
+    font-size: 1.3rem;
     font-weight: bold;
-    margin-top: 10px;
+    text-align: center;
 }
-.buttonAddCart {
+
+.shopping-cart-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.shopping-cart-icon {
+    width: 50px;
+}
+
+.shopping-cart-counter {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 25px;
+    right: 17px;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 16px;
+    color: var(--white-color);
+}
+
+/* Nav */
+.nav-container {
+    width: 100%;
+    min-width: 280px;
+    height: 52px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--yellow-color);
+    text-align: center;
+}
+
+.options {
+    font-size: 1.0rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black-color);
+    text-align: center;
+}
+
+.options:hover {
+    color: var(--white-color);
+}
+
+/* Funkos */
+.funkos-container {
+    width: 100%;
+    height: 100%;
+    min-width: 280px;
+    background-color: #F3F3F7;
+    position: relative;
+}
+
+.product-card-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.product-card {
+    width: 80%;
+    min-width: 200px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    box-shadow: 0 0 6px hsla(0,0%,50%,.25);
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.product-card-img {
+    width: 100%;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--blue-color);
+}
+
+.product-price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--red-color);
+    margin: 15px 0px;
+}
+
+.add-cart-button {
     width: 60%;
     height: 40px;
-    font-size: 17px;
-    margin-top: 10%;
-    border-radius: 25px;
+    border-radius:15px;
+    background-color: var(--yellow-color);
     border: none;
-    background-image: linear-gradient(65deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
-    color: white;
-    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--blue-color);
 }
 
-/* ------------------- LISTA DE COMPRAS ---------------------- */
-aside {
+.add-cart-button:hover {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+
+/* Carrito */
+.transparency-container {
+    width: 100%;
+    height: 100%;
+    background-color: #00000047;
+    position: absolute;
+    top: 0;
+}
+
+.my-order-container {
+    width: 95%;
+    min-width: 280px;
+    max-width: 450px;
+    height: 450px;
+    position: fixed;
+    right: 0;
+    background-color: white;
+}
+
+.subtitle-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 5%;
+    padding: 10px;
 }
-.allContainerItems {
-    display: grid;
-    grid-template-rows: repeat(6, auto);
-    width: 45%;
-    height: 100vh;
-    padding: 10px 15px 10px 10px;
-    box-shadow: -1px 0px 14px 2px rgba(153,153,153,1);
-    border-radius: 15px;
+
+.my-orden-img-arrow {
+    width: 17px;
+    height: 17px;
 }
-.titleContainer {
-    display: flex;
+
+.subtitle-container p {
+    font-size: 1.8rem;
+    font-weight: bold;
 }
-.iconFlecha { 
-    transform: rotate(180deg);
-    width: 12px;
-    margin-top: 5px;
+
+.my-orden-img-close {
+    width: 22px;
+    height: 22px;
 }
-.pMyshopping {
-    font-size: 25px;
-    margin-left: 5%;
+
+.order-cart-container{
+    width: 100%;
+    height: 280px;
+    overflow-y: scroll;
 }
-.divItemShop {
+
+.order-cart-box{
+    width: 100%;
     display: grid;
     grid-template-columns: auto 1fr auto auto;
-    gap: 19px;
+    gap: 16px;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 15px;
+}
+
+.img-my-order {
+    width: 90px;
+}
+
+.product-name-my-order {
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: var(--blue-color);
+}
+
+.product-price-my-order {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.icon-delete {
+    width: 28px;
+}
+
+.total-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--yellow-color);
+    padding: 5px 50px;
+    margin-bottom: 30px;
+}
+
+.total-container p {
+    font-size: 1.6rem;
+    color: var(--white-color);
+}
+
+.inactive {
+    display: none;
+}
+
+.button-go-pay-container {
+    text-align: center;
+}
+
+.button-go-pay {
+    display: inline-block;
+    width: 60%;
+    height: 40px;
+    border-radius:15px;
+    background-color: var(--yellow-color);
+    border: none;
+    font-size: 1.3rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--blue-color);
+    padding-top: 11px;
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+
+.button-go-pay:hover {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+
+/* Detalles del producto */
+.transparency {
+    width: 100%;
+    height: 100%;
+    background-color: #00000047;
+    position: absolute;
+    top: 0;
+}
+
+.funko-details-container {
+    width: 93%;
+    height: auto;
+    min-width: 280px;
+    max-width: 400px;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+}
+
+.funko-detail-close {
+    margin: 12px 12px 0px 0%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.funko-detail-close img {
+    width: 30px;
+}
+
+.product-detail-img {
+    width: 100%;
+    min-width: 180px;
+    max-width: 250px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.product-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.product-detail-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+}
+
+.product-detail-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--red-color);
+    margin: 13px 0px;
+}
+
+.funko-information {
+    font-size: 1.2rem;
+    color: var(--blue-color);
+}
+
+.information-b {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--blue-color);
+}
+
+.margin-button {
+    margin: 20px 0px;
+}
+
+/* Tarjetas */
+.all-pay-container {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,195,0,1) 100%);
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
-.itemShop{
-    width: 100px;
-    border-radius: 10px;
+
+.cardContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
 }
-.price {
-    font-weight: bold;
-}
-.imageClose {
-    width: 14px;
-    cursor: pointer;
-}
-.containerTotal {
-    display: grid;
-    height: 35px;
-    grid-template-columns: auto 1fr;
-    background-color: #F7F7F7;
-    margin-bottom: 24px;
-    border-radius: 8px;
-    padding: 0 35px;
-}
-.containerTotal p {
-    text-align: end;
-    font-weight: bold;
-    margin-top: 8px;
-}
-.containerButton {
+
+/* Frontal */
+.infoCardFront {
+    position: relative;
     display: flex;
     justify-content: center;
 }
-.buttonShop {
-    background-image: linear-gradient(65deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
-    border-radius: 8px;
-    border: none;
-    width: 60%;
-    height: 50px;
-    cursor: pointer;
-}
-.buttonShop a {
-    
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold; 
-}
-.buttonShop:hover {
-    box-shadow: 2px 0px 10px 0 #7d4159 , 2px 0px 3px 0 #00125f;
+
+.imgCardFront {
+    width: 400px;
+    position: relative;
 }
 
-/* --------------------- TARJETAS ------------------ */
-.containerDetailCards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.logoVisa {
+    position: absolute;
+    top: 0;
+    left: 290px;
 }
-.contenedorFondo {
-    width: 100%;
-    height: 100vh;
-    background-image: url(./assets/fondo.png);
+
+.logoVisa img {
+    width: 100px;
     background-repeat: no-repeat;
-    background-size: cover;
 }
-.contenedorGrid {
+
+.numberUserCardContainer {
+    position: absolute;
+    top: 140px;
+    left: 47px;
+    color: var(--white-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.8rem;
+    text-shadow: 2px 0px 2px var(--black-color);
+}
+
+.dateNameCardContainer {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 210px;
+    left: 49px;
+}
+
+.nameUserCardContainer p {
+    font-size: 1.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--white-color);
+    text-transform: uppercase;
+    text-shadow: 2px 0px 2px var(--black-color);
+}
+
+.dateUserCardContainer {
+    font-size: 1.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--white-color);
+    text-shadow: 2px 0px 2px var(--black-color);
+}
+
+/* Reverso */
+.infoCardDetras {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.p-cvv {
+    position: absolute;
+    top: 124px;
+    left: 345px;
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: var(--blue-color);
+}
+
+/* Formulario */
+.formContainerAll {
     width: 100%;
     height: 100vh;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-} 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/* ------------------- PARTE FRONTAL DE LA TARJETA ------------------ */
-.contenedorFlexbox {
+.formContainer {
+    width: 90%;
+    min-width: 280px;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    background-color: var(--white-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.infoCardFrontal {
-    position: relative;
-    color: #fff;
-    font-family: monospace;
-    text-transform: uppercase;
-    font-size: 25px;
-}
-.infoCardFrontal figure img {
-    margin-top: 50px;
-}
-.logoVisa img {
-    width: 100px;
-    position: absolute;
-    top: 50px;
-    left: 330px;
-}
-.chip {
-    width: 50px;
-    position: absolute;
-    top: 70px;
-    left: 35px;
-}
-.informacion {
-    position: relative;
-    top: -100px;
-    padding: 10px; 
-}
-.flexbox {
-    display: flex;
-    justify-content: space-between;
-    
-}
-.expiracion {
-    margin-right: 10px;
-    margin-top: 0;
-}
 
-/* ------------------------- PARTE TRASERA DE LA TARJETA ------------------------- */
-.infoCardDetras {
-    position: relative;
-}
-.information {
-    position: absolute;
-    top: 110px;
-    left: 360px;
-    color: #fff;
-    font-size: 20px;
-}
-
-/* --------------------------- FORMULARIO ----------------------- */
-.formContainerAll {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.container {
-    width: 50%;
-}
-.containerGridForm {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-}
-.containerGridForm label {
-    font-size: 14px;
-    color: rgb(54, 4, 82);
+.formContainer label {
+    font-size: 1.4rem;
     font-weight: bold;
+    color: var(--blue-color);
+    margin-top: 35px;
 }
-.containerGridForm input{
-    border: 1px solid rgb(229 229 229);
-    width: 100%;
+
+.formContainer input {
+    width: 90%;
+    max-width: 400px;
     height: 40px;
+    background-color: var(--lightGray-color);
+    border: none;
     border-radius: 10px;
-    /* margin-bottom: 20px; */
+    font-family: 'Nunito', sans-serif;
     text-align: center;
-    text-transform: uppercase;
     margin-top: 7px;
 }
+
+.totalPay {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--red-color);
+    text-align: center;
+    margin: 40px 0px 5px;
+}
+
 .alertIsValid {
-    color: red;
-    font-size: 13px;
-    margin-bottom: 30px;
+    color: var(--red-color);
+    font-size: 1.3rem;
 }
+
 .grupoFlexbox {
+    width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
+
 .grupoSelect {
     width: 50%;
     display: flex;
-    margin-top: 7px;
+    justify-content: center;
+    align-items: center;
 }
-.select{
-    width: 100%;
-} 
-.select select {
-    width: 80%;
+
+.grupoSelect select {
+    width: 100px;
     height: 40px;
     border-radius: 10px;
     border: 1px solid rgb(229 229 229);
+    margin-right: 8px;
+    margin-top: 7px;
 }
+
 .positioncvv {
-    position: relative;
-    bottom: 20px;
-} 
-.btnEnviar {
-    width: 100%;
-    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.finalizePurchaseButton {
+    width: 60%;
+    height: 40px;
+    border-radius:15px;
+    background-color: var(--yellow-color);
     border: none;
-    background-image: linear-gradient(65deg, #7d4159 0, #773959 12.5%, #6f3159 25%, #652859 37.5%, #591f59 50%, #4b185a 62.5%, #3a135b 75%, #24125d 87.5%, #00125f 100%);
-    border-radius: 10px;
-    cursor: pointer;
-    color: white;
-    font-size: 18px;
-    font-family: monospace;
+    font-size: 1.3rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--blue-color);
+    margin: 45px 0px 20px;
 }
-.btnEnviar:hover {
-    box-shadow: 2px 0px 10px 0 #7d4159 , 2px 0px 3px 0 #00125f;
+
+.finalizePurchaseButton:hover {
+    background-color: var(--blue-color);
+    color: var(--white-color);
 }
+
 .mensajeFinal {
     text-align: center;
-    color: #3a135b;
-    font-size: 40px;
-    font-family: 'Italianno', cursive;
-    margin-top: 20px;
+    color: var(--blue-color);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
-.containerGridForm input:hover,
-.containerGridForm select:hover {
-    border: 1px solid rgb(198 76 213);
-} 
-.containerGridForm input:focus,
-.containerGridForm select:focus {
+
+.formContainer input:focus {
     outline: rgb(4, 4, 4);
     box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.3);
 }
 
-
-/* ------------------- PIE DE PÁGINA ---------------------- */
-.footerContainer {
-    display: flex;
+/* Footer */
+.footer-container {
+    width: 100%;
+    min-width: 280px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
     align-items: center;
-    justify-content: center;
-    background-color: black;
-    height: 70px;
+    background-color: var(--black-color);
 }
-.footerContainer p {
-    font-size: 15px;
-    color: white;
-    margin-right: 2%;
+
+.footer-container p {
+    font-size: 1.2rem;
+    color: var(--white-color);
+    margin-left: 15px;
 }
-.imageContainerApps {
-    background-color: white;
-    width: 55px;
-    height: 50px;
-    margin-right: 1%;
-    border-radius: 5px;
-    text-align: center;
-}
-.imageContainerApps:hover {
-    background-color: #ff4747;
-}
+
 .imageApps {
-    width: 30px;
-    height: 30px;
-    margin-top: 15%;
+    width: 40px;
+    margin-top: 12px;
+    margin-right: 15px;
 }
+
+@media only screen and (max-width: 700px) {
+    .input-search {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .p-user {
+        font-size: 1.5rem;
+    }
+    .options {
+        font-size: 1.3rem;
+    }
+    .footer-container p {
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .cardContainer {
+        display: none;
+    }
+}
+
+
+

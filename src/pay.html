@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Funko</title>
+  <link rel="shortcut icon" href="./assets/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header class="container-header">
+    <a href="./index.html"><img class="img-logo" src="./assets/logo2.png" alt="Logo de Love Fuko"></a>
+
+    <p class="p-user">Hola, Melissa Aquijes</p>
+  </header>
+
+  <nav class="nav-container">
+    <a class="options" href="./index.html">Inicio</a>
+    <a class="options" href="#">Anime</a>
+    <a class="options" href="#">Series TV</a>
+    <a class="options" href="#">Películas</a>
+    <a class="options" href="#">Ofertas</a>
+  </nav>
+
+  <!-- Tarjetas -->
+  <section class="all-pay-container">
+
+    <div class="cardContainer">
+
+      <div class="infoCardFront">
+        <img class="imgCardFront" src="./assets/front-card.png" alt="Tarjeta parte frontal">
+        <div class="logoVisa" id="logoMarca"></div>
+
+        <div class="numberUserCardContainer" id="numero"></div>
+
+        <div class="dateNameCardContainer">
+          <div class="nameUserCardContainer">
+            <p id="nombre">------------</p>
+          </div>
+
+          <div class="dateUserCardContainer">
+            <p><span class="mes">MM</span> / <span class="year">YY</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="infoCardDetras">
+        <img class="imgCardFront" src="./assets/back-card.png" alt="Reverso de la tarjeta">
+
+        <div class="p-cvv" id="ccv">
+          <p>CVV</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Formulario -->
+    <div class="formContainerAll">
+
+      <form class="formContainer" action="">
+        <h2 class="totalPay"></h2>
+
+        <label for="inputNombreTarjeta">Nombre del Titular:</label>
+        <input type="text" id="inputNombreTarjeta" placeholder="Nombre y Apellido" required>
+
+        <label for="inputNumeroTarjeta">Número de Tarjeta:</label>
+        <input type="text" id="inputNumeroTarjeta" placeholder="Ej. 1234 5678 9012 3456" maxlength="19" autocomplete="off" required>
+
+        <p class="alertIsValid" id="alertIsValid"></p>
+
+        <label for="selectMes">Expiración / CVV:</label>
+
+        <div class="grupoFlexbox">
+          <div class="grupoSelect">
+            <select name="mes" id="selectMes">
+              <option disabled selected>Mes</option>
+            </select>
+
+            <select name="year" id="selectYear">
+              <option disabled selected>Año</option>
+            </select>
+          </div>
+
+          <div class="positioncvv">
+            <label for="inputCVV"></label>
+            <input class="inputcvv" type="text" id="inputCVV" maxlength="3" placeholder="Ej. 123" required>
+          </div>
+        </div>
+
+        <button type="submit" class="finalizePurchaseButton" id="btnPagar">Confirmar</button>
+        <div class="mensajeFinal" id="mensajeFinal"></div>
+
+      </form>
+    </div>
+
+  </section>
+
+  <footer class="footer-container">
+    <p>Copyright © 2023 Melissa Aquijes</p>
+
+    <img class="imageApps" src="./assets/facebook.png" alt="Logo de Facebook">
+    <img class="imageApps" src="./assets/twitter.png" alt="Logo de Twitter">
+  </footer>
+
+  <script src="./index.js" type="module"></script>
+  <script src="./pay.js" type="module"></script>
+  <script src="./validator.js" type="module"></script>
+</body>
+
+</html>

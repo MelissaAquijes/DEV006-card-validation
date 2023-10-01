@@ -1,137 +1,198 @@
-import validator from "./validator.js";
+import { data } from './data/data.js';
 
-const inputNombreTarjeta = document.querySelector('#inputNombreTarjeta');
-const mostrarNombreTarjeta = document.querySelector('#nombre');
+const productCardContainer = document.querySelector('.product-card-container');
 
-const inputNumeroTarjeta = document.querySelector('#inputNumeroTarjeta');
-let numeroDeTarjetaPuro = ""
-const alertIsValid = document.querySelector("#alertIsValid");
-let maskNumber = ""
-const mostrarNumeroTarjeta = document.querySelector('#numero');
+const productDetailContainer = document.querySelector('#productDetailContainer');
+const productDetailImg = document.querySelector('#productDetailImg');
+const productDetailName = document.querySelector('#productDetailName');
+const productDetailPrice = document.querySelector('#productDetailPrice');
+const productDetailDescription = document.querySelector('#productDetailDescription');
 
-const logoMarca = document.querySelector('#logoMarca');
+const buttonGoPay = document.querySelector('.button-go-pay');
+const orderCartContainer = document.querySelector('.order-cart-container');
+const totalAmount = document.querySelector('.total-amount');
+const shoppingCartCounter = document.querySelector('.shopping-cart-counter');
+const shoppingCartContainer = document.querySelector('.shopping-cart-container');
+const transparencyContainer = document.querySelector('.transparency-container');
+const funkoDetailClose = document.querySelector('.funko-detail-close');
+const myOrdenImgClose = document.querySelector('.my-orden-img-close');
 
-const selectMes = document.querySelector('#selectMes');
-const selectYear = document.querySelector('#selectYear');
-const mes = document.querySelector('.mes');
-const year = document.querySelector('.year');
+let arrayProductCart = [];
+let totalFinals = [];
 
-const inputCVV = document.querySelector('#inputCVV');
-const cvv = document.querySelector('#ccv');
-
-const btnPagar = document.querySelector("#btnPagar");
-const mensajeFinal = document.querySelector('#mensajeFinal');
-
+ funkoDetailClose.addEventListener('click', () =>{
+    productDetailContainer.classList.add('inactive');
+});
  
-// --------------------------- INPUT NOMBRE DE TARJETA ----------------------------------
-inputNombreTarjeta.addEventListener('keyup', (letrita) => {
-  const valorInputNombre = letrita.target.value;
+shoppingCartContainer.addEventListener('click', () => {
+    transparencyContainer.classList.remove('inactive');
+});
 
-  inputNombreTarjeta.value = valorInputNombre.replace(/[0-9]/g, '');
-  mostrarNombreTarjeta.textContent = valorInputNombre;
-
-  // -------- MOSTRAR LOS ---- EN LA TARJETA AL ELIMINAR EL NOMBRE DEL INPUT ------
-  if (valorInputNombre === '') {
-    mostrarNombreTarjeta.textContent = '------------';
-  }
+myOrdenImgClose.addEventListener('click', () => {
+    transparencyContainer.classList.add('inactive')
 });
 
 
-// ------------------------------------- INPUT NÚMERO DE TARJETA -------------------------------------
-inputNumeroTarjeta.addEventListener('input', (e) => {
-  const digitoTarget = e.target.value;
-  
-  inputNumeroTarjeta.value = digitoTarget
-  // ------------- ELIMINAMOS ESPACIOS EN BLANCO ----------------
-    .replace(/\s/g, '')
-  // ------------- ELIMINAR LAS LETRAS --------------------------
-    .replace(/\D/g, '')
-  // ------------- PONEMOS ESPACIO CADA 4 NÚMEROS ---------------
-    .replace(/([0-9]{4})/g, '$1 ')
-  // ------------- ELIMINA EL ÚLTIMO ESPACIO --------------------
-    .trimEnd();
- 
-  
-  numeroDeTarjetaPuro =inputNumeroTarjeta.value.replace(/\s/g, '')   //2132 1321 3213 "7666"
-  
-  // -------- DESAPARECER ALERTA CUANDO ELIMINAMOS UN DIGITO MENOR A 16 --------------
-  if(numeroDeTarjetaPuro.length<16) {
-    alertIsValid.innerText=("")
-  }
-  // -------- ENMASCARANDO LOS NÚMEROS USANDO EL MÉTODO validator.maskify(creditCardNumber) -----------
-  maskNumber = validator.maskify(numeroDeTarjetaPuro) //############7666  
+function renderProductCards(arr) {
 
-  // ----------------- MOSTRAR NÚMERO EN LA TARJETA ---------------------------------
-  mostrarNumeroTarjeta.textContent =maskNumber.replace(/([^0-9]{4})/g, '$1 ') // #### #### #### 1234 
-  
-  // --------------------------- CAMBIO DE LOGO VISA O MASTERCARD -------------------------------------
-  if (digitoTarget === '') {
-    logoMarca.innerHTML = '';      
-  }
-  if (digitoTarget[0] === '4') {
-    const imagen = document.createElement('img');
-    imagen.src = './assets/visa.png';
-    logoMarca.appendChild(imagen);
-  } else if (digitoTarget[0] === '5') {
-    const imagen = document.createElement('img');
-    imagen.src = './assets/mastercard.png';
-    logoMarca.appendChild(imagen);
-  }
-});
+    productCardContainer.innerHTML = '';
 
+    arr.forEach ((product) => {
 
-// ----------------------------- SELECTBOX MES GENERADO DINAMICAMENTE --------------------- 
-for (let i = 1; i <= 12; i++) {
-  const opcion = document.createElement('option');
-  opcion.innerText = i;
-  selectMes.appendChild(opcion);
+        // Creación de cards
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+
+        const productCardImg = document.createElement('img');
+        productCardImg.setAttribute('src', product.image);
+        productCardImg.classList.add('product-card-img');
+
+        const productCardInfo = document.createElement('div');
+        productCardInfo.classList.add('product-card-info');
+
+        const  productName = document.createElement('p');
+        productName.classList.add('product-name');
+        productName.innerText = product.name;
+
+        const productPrice = document.createElement('p');
+        productPrice.classList.add('product-price');
+        productPrice.innerText = 'S/' + product.price;
+
+        const addCartButton = document.createElement('button');
+        addCartButton.classList.add('add-cart-button');
+        addCartButton.innerText = 'Añadir al carrito';
+
+        addCartButton.addEventListener('click', () => {
+            renderMyOrder(product);
+        });
+
+        productCard.append(productCardImg, productName, productPrice, addCartButton)
+        productCardContainer.append(productCard);
+
+        //Creación de aside (info. del producto)
+        productCardImg.addEventListener('click', () => {
+            productDetailImg.setAttribute('src', product.image);
+            productDetailImg.classList.add('product-detail-img');
+
+            productDetailName.innerText = product.name;
+            productDetailName.classList.add('product-detail-name');
+
+            productDetailPrice.innerText = 'S/' + product.price;
+            productDetailPrice.classList.add('product-detail-price');
+
+            if (productDetailDescription.firstChild) {
+                productDetailDescription.removeChild(productDetailDescription.firstChild);
+            }
+
+            const description = document.createElement('ul');
+            description.classList.add('description');
+            const descriptionEstructure =  `
+            <li class="funko-information"><span class="information-b">Marca:</span> ${product.trademark}</li>
+            <li class="funko-information"><span class="information-b">Línea:</span> ${product.line}</li>
+            <li class="funko-information"><span class="information-b">Material:</span> ${product.material}</li>
+            <li class="funko-information"><span class="information-b">Medida:</span> ${product.extent}</li>
+            <li class="funko-information"><span class="information-b">Color:</span> ${product.color}</li>`
+
+            description.innerHTML = descriptionEstructure;
+            productDetailDescription.appendChild(description);
+
+            productDetailContainer.classList.remove('inactive');
+        });
+
+    })
 }
+renderProductCards(data);
 
-// ----------------------------- SELECTBOX AÑO GENERADO DINAMICAMENTE --------------------- 
-const yearActual = new Date().getFullYear();
-for (let i = yearActual; i <= yearActual +8; i++) {
-  const opcion = document.createElement('option');
-  opcion.innerText = i;
-  selectYear.appendChild(opcion);
-}
 
-// ----------------------------- MOSTRAR MES DE EXPIRACIÓN EN LA TARJETA ----------------------------
-selectMes.addEventListener('change', (e) => {
-  mes.textContent = e.target.value;
-});
+//Buscador de funkos
+const inputSearch = document.querySelector('.input-search');
+inputSearch.addEventListener('keyup',(e)=>{
 
-// ----------------------------- MOSTRAR AÑO DE EXPIRACIÓN EN LA TARJETA -----------------------------
-selectYear.addEventListener('change', (e) => {
-  year.textContent = e.target.value.slice(2);
+    const keyword= e.target.value;
+    console.log(keyword)
+    const dataFilterSearch= data.filter((funko) => {
+        return funko.name.toLowerCase().includes(keyword.toLowerCase());
+    });
+    renderProductCards(dataFilterSearch)
 });
 
 
-// -----------------------------------INPUT CVV ------------------------------------------------
-inputCVV.addEventListener('keyup', () =>{
-  inputCVV.value = inputCVV.value
-  // ---------------- ELIMINAMOS ESPACIOS EN BLANCO ----------------
-    .replace(/\s/g, '')
-  // ---------------- ELIMINAR LAS LETRAS --------------------------
-    .replace(/\D/g, '');
+//Creación productos añadidos a la bolsa de compras
+function renderMyOrder(product) {
+    const orderCartBox = document.createElement('div');
+    orderCartBox.classList.add('order-cart-box');
 
-  // ----------- MOSTRAMOS DÍGITOS DEL CVV EN LA TARJETA -----------
-  cvv.textContent = inputCVV.value;
-});
+    const imgMyOrder = document.createElement('img');
+    imgMyOrder.setAttribute('src', product.image);
+    imgMyOrder.classList.add('img-my-order');
+
+    const productNameMyOrder = document.createElement('p');
+    productNameMyOrder.innerHTML = product.name;
+    productNameMyOrder.classList.add('product-name-my-order');
+
+    const productPriceMyOrder = document.createElement('p');
+    productPriceMyOrder.innerHTML = 'S/' + product.price;
+    productPriceMyOrder.classList.add('product-price-my-order');
+
+    const iconDelete = document.createElement('img');
+    iconDelete.setAttribute('src','./assets/eliminate.png');
+    iconDelete.classList.add('icon-delete');
+
+    orderCartBox.append(imgMyOrder, productNameMyOrder, productPriceMyOrder, iconDelete);
+    orderCartContainer.append(orderCartBox);
 
 
-// ------------------------------- VALIDANDO EL NÚMERO DE LA TARJETA --------------------------- 
-btnPagar.addEventListener('click', (event) => {
+    // Actualizamos la cantidad de productos y sumamos el resultado
+    totalAmount.innerHTML = '$0.00';
 
-  const numberIsValid = validator.isValid(numeroDeTarjetaPuro)
+    shoppingCartCounter.innerHTML = orderCartContainer.childElementCount;
 
-  if(numberIsValid) {
-    alertIsValid.innerText=("La tarjeta es válida.")
-    mensajeFinal.innerText = ('Gracias por tu compra!');
-
-  }else {
-    alertIsValid.innerText=("La tarjeta no es válida. Ingrese correctamente")
-  }
-
-  event.preventDefault();
+    totalAmount.innerHTML = Number(totalAmount.innerHTML.substring(1)) + product.price;
+    arrayProductCart.push(Number(totalAmount.innerHTML));
+    console.log("arrayProductCart array de totalAmount: ",arrayProductCart)
     
-});
+    totalAmount.innerHTML = 'S/' + sumProducts(arrayProductCart);
+    console.log('array producto suma', sumProducts(arrayProductCart));
+
+    totalFinals.push(sumProducts(arrayProductCart))
+        if(totalFinals.length > 1) {
+            totalFinals.shift();
+        }
+        console.log('totalFinals :', totalFinals)
+
+    // Elimina producto de mi orden y actualiza el carrito
+    iconDelete.addEventListener('click', () => {
+        console.log("eliminando")
+        orderCartBox.remove();
+        shoppingCartCounter.innerHTML = orderCartContainer.childElementCount;
+
+
+        let totalRest = totalFinals[0] - product.price;
+        totalAmount.innerHTML = 'S/' + totalRest;
+
+        totalFinals.push(totalRest);
+        totalFinals.shift();
+        console.log("totalFinals RESTANDO--------: ",totalFinals)
+
+        arrayProductCart.pop();
+
+    });
+}
+
+
+buttonGoPay.addEventListener('click', () => {
+    const totalFinalShop = totalFinals[0];
+    console.log("totalFinalShop",totalFinalShop)
+    localStorage.setItem('totalFinalShop', totalFinalShop);
+}); 
+
+console.log("totalFinals DESDE AFUERA: ",totalFinals)
+
+//suma todos los elementos del array
+function sumProducts(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+    }
+    return sum;
+};
