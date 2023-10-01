@@ -9,11 +9,11 @@
 
 ## 1. Introducción
 
-En este proyecto se construyó una aplicación web para una Tienda de Joyas que al momento de realizar el
+En este proyecto se construyó una aplicación web para una Tienda de Funkos que al momento de realizar el
 pago de dicha compra se validará el número de la tarjeta de crédito mediante el uso del algoritmo de 
 Luhn.
 
-La primera página cuenta con una simulación de compras por defecto, al pasar a realizar dicha compra,
+La primera página cuenta con una lista de productos, que se puede añadir al carrito y realizar dicha compra que
 nos llevará a una página para pagar, donde estará nuestra tarjeta de crédito virtual que contendrá
 todas nuestras funciones de interacción para el usuario.
 
